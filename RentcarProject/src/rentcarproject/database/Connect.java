@@ -16,11 +16,11 @@ public class Connect {
 
     public Connection connection = null;
 	
-    private final String DRIVER = "org.postgresql.Driver";
+    private final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private final String DBNAME = "RentCar";
-    private final String URL = "jdbc:postgresql://localhost:5432/" + DBNAME;
-    private final String LOGIN = "postgres";
-    private final String SENHA = "10121430";
+    private final String URL = "jdbc:mysql://localhost:3306/" + DBNAME;
+    private final String LOGIN = "mysql_rent_car";
+    private final String SENHA = "123456";
     
     public boolean getConnection() {
         try {
