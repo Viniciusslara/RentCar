@@ -48,19 +48,19 @@ public class TelaCadVeiculo extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(153, 153, 153));
         setClosable(true);
 
-        jLabelMarca.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        jLabelMarca.setFont(new java.awt.Font("Liberation Sans", 0, 22)); // NOI18N
         jLabelMarca.setText("Marca:");
 
-        jLabelModelo.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        jLabelModelo.setFont(new java.awt.Font("Liberation Sans", 0, 22)); // NOI18N
         jLabelModelo.setText("Modelo:");
 
-        jLabelPlaca.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        jLabelPlaca.setFont(new java.awt.Font("Liberation Sans", 0, 22)); // NOI18N
         jLabelPlaca.setText("Placa:");
 
-        jLabelValor.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        jLabelValor.setFont(new java.awt.Font("Liberation Sans", 0, 22)); // NOI18N
         jLabelValor.setText("Valor Diaria:");
 
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 2, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Liberation Sans", 2, 34)); // NOI18N
         jLabel1.setText("CADASTRO VEÍCULO");
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
