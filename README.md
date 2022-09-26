@@ -1,1 +1,1 @@
-# Configuration-Maneger-Project
+# Configuration-Manager-Project
