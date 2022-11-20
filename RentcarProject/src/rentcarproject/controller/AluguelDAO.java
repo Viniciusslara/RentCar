@@ -20,7 +20,7 @@ import rentcarproject.models.Veiculos;
  */
 public class AluguelDAO {
     
-    public void create(Aluguel aluguel){
+    public String create(Aluguel aluguel){
         
         Connect connect = new Connect();
         
@@ -48,18 +48,21 @@ public class AluguelDAO {
                     connect.close();
                     statement.close();
                     JOptionPane.showMessageDialog(null, "Locação realizada com sucesso!");
+                    return "Locacao realizada com sucesso!";
                 
                 }catch(SQLException erro){
                     JOptionPane.showMessageDialog(null, "Erro ao realizar locação, verifique os dados!", "Erro", JOptionPane.ERROR_MESSAGE);
+                    return "Erro ao realizar locacao";
                 }
             }else{
                 JOptionPane.showMessageDialog(null, "Erro ao realizar locação, verifique os dados!", "Erro", JOptionPane.ERROR_MESSAGE);
+                return "Erro ao realizar locacao";
             }
         }else{
             System.out.println("Erro ao conectar");
+            return "Erro ao realizar locacao";
         }
-        
-    
+       
     
     }
 
@@ -114,7 +117,7 @@ public List<Aluguel> read (){
     
     }
 
-    public void delete (Aluguel aluguel){
+    public String delete (Aluguel aluguel){
         
         Connect connect = new Connect();     
         
@@ -132,12 +135,15 @@ public List<Aluguel> read (){
                 statement.close();
                 connect.close();
                 JOptionPane.showMessageDialog(null, "Veiculo desalocado com sucesso!");
+                return "Exclusao concluida com sucesso";
                 
             }catch(SQLException erro){
                 JOptionPane.showMessageDialog(null, "Desalocação não concluida!", "Erro", JOptionPane.ERROR_MESSAGE);
+                return "Erro ao exluir";
             }
         }else{
             System.out.println("Erro ao conectar");
+            return "Erro ao excluir";
         }
     
     }

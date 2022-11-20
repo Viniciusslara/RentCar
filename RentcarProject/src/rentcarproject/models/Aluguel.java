@@ -17,7 +17,7 @@ public class Aluguel {
     
     private int id;
     private Date data;
-    private Date dataentrega;
+    private java.util.Date dataentrega;
     private int numDiaria;
     private float valor;
     private String metodoPag;
@@ -30,12 +30,12 @@ public class Aluguel {
         this.id = id;
     }
     
-    public Date getDataentrega() {
+    public java.util.Date getDataentrega() {
         return dataentrega;
     }
 
-    public void setDataentrega(Date dataentrega) {
-        this.dataentrega = dataentrega;
+    public void setDataentrega(java.util.Date date) {
+        this.dataentrega = date;
     }
 
     public Date getData() {
