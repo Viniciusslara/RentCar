@@ -21,7 +21,7 @@ import rentcarproject.models.Cliente;
 public class ClienteDAO {
     
 
-    public void create(Cliente client){
+    public String create(Cliente client){
         
         Connect connect = new Connect();     
         
@@ -43,12 +43,15 @@ public class ClienteDAO {
                 statement.close();
                 connect.close();
                 JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
+                return "Cliente cadastrado com sucesso";
                 
             }catch(SQLException erro){
                 JOptionPane.showMessageDialog(null, "Erro ao cadastrar, verifique os dados!", "Erro", JOptionPane.ERROR_MESSAGE);
+                return "Erro ao cadastrar, verifique os dados";
             }
         }else{
             System.out.println("Erro ao conectar");
+            return "Erro ao cadastrar, verifique os dados";
         }
     
     }
@@ -97,7 +100,7 @@ public class ClienteDAO {
     
     }
 
-    public void update (Cliente client){
+    public String update (Cliente client){
         
         Connect connect = new Connect();     
         
@@ -120,17 +123,20 @@ public class ClienteDAO {
                 statement.close();
                 connect.close();
                 JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
+                return "Alterado com sucesso!";
                 
             }catch(SQLException erro){
                 JOptionPane.showMessageDialog(null, "Alteração não concluida!", "Erro", JOptionPane.ERROR_MESSAGE);
+                return "Alteração não concluida";
             }
         }else{
             System.out.println("Erro ao conectar");
+            return "Erro ao conectar";
         }
     
     }
     
-    public void delete (Cliente client){
+    public String delete (Cliente client){
         
         Connect connect = new Connect();     
         
@@ -150,12 +156,15 @@ public class ClienteDAO {
                 connect.close();
                 
                 JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
+                return "Excluido com sucesso";
                 
             }catch(SQLException erro){
                 JOptionPane.showMessageDialog(null, "Exclusão não concluida!", "Erro", JOptionPane.ERROR_MESSAGE);
+                return "Exclusao não concluida";
             }
         }else{
             System.out.println("Erro ao conectar");
+            return "Erro ao conectar";
         }
     
     }
