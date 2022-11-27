@@ -45,7 +45,7 @@ public class ClienteDAO {
                 return "Cliente cadastrado com sucesso";
                 
             }catch(SQLException erro){
-                JOptionPane.showMessageDialog(null, erro.toString(), "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Erro ao cadastrar, verifique os dados", "Erro", JOptionPane.ERROR_MESSAGE);
                 return "Erro ao cadastrar, verifique os dados";
             }
         }else{
