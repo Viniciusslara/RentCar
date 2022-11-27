@@ -8,7 +8,7 @@ import static org.mockito.Mockito.*;
 import rentcarproject.controller.ClienteDAO;
 import rentcarproject.models.Cliente;
 
-public class testClientes {
+public class ClientesTest {
 
 	static Cliente cliente = new Cliente();
 	static ClienteDAO clienteMock = mock(ClienteDAO.class);

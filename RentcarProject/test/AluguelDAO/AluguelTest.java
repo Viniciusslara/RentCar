@@ -10,7 +10,7 @@ import static org.mockito.Mockito.*;
 import rentcarproject.controller.AluguelDAO;
 import rentcarproject.models.Aluguel;
 
-public class testAluguel {
+public class AluguelTest {
 
 	static AluguelDAO aluguelMock = mock(AluguelDAO.class);
 	static Aluguel aluguel = new Aluguel();
