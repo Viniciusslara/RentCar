@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.plaf.RootPaneUI;
 import rentcarproject.models.Cliente;
 
 /**
@@ -28,7 +27,7 @@ public class ClienteDAO {
         if(connect.getConnection()){
             try{
                 
-                String sql = "INSERT INTO tb_cliente (id_cliente,nome_cliente,datnasc_cliente,tel_clinte,cpf_cliente,cnh_cliente) "
+                String sql = "INSERT INTO tb_cliente (id_cliente,nome_cliente,datanasc_cliente,tel_clinte,cpf_cliente,cnh_cliente) "
                         + "VALUES(DEFAULT,?,?,?,?,?)";
             
                 PreparedStatement statement = connect.connection.prepareStatement(sql);
@@ -46,7 +45,7 @@ public class ClienteDAO {
                 return "Cliente cadastrado com sucesso";
                 
             }catch(SQLException erro){
-                JOptionPane.showMessageDialog(null, "Erro ao cadastrar, verifique os dados!", "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, erro.toString(), "Erro", JOptionPane.ERROR_MESSAGE);
                 return "Erro ao cadastrar, verifique os dados";
             }
         }else{
@@ -77,7 +76,7 @@ public class ClienteDAO {
                     
                     cliente.setId(resultSet.getInt("id_cliente"));
                     cliente.setNome(resultSet.getString("nome_cliente"));
-                    cliente.setDataNasc(resultSet.getString("datnasc_cliente"));
+                    cliente.setDataNasc(resultSet.getString("datanasc_cliente"));
                     cliente.setTelefone(resultSet.getString("tel_clinte"));
                     cliente.setCpf(resultSet.getString("cpf_cliente"));
                     cliente.setCnh(resultSet.getString("cnh_cliente"));
@@ -90,7 +89,7 @@ public class ClienteDAO {
                 
                 
             }catch(SQLException erro){
-                JOptionPane.showMessageDialog(null, "Erro na leitura dos dados", "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Erro na leitura", "Erro", JOptionPane.ERROR_MESSAGE);
             }
         }else{
             System.out.println("Erro ao conectar");
@@ -107,7 +106,7 @@ public class ClienteDAO {
         if(connect.getConnection()){
             try{
                 
-                String sql = "UPDATE tb_cliente SET nome_cliente = ?,datnasc_cliente = ?,tel_clinte = ?,cpf_cliente = ?,cnh_cliente = ? "
+                String sql = "UPDATE tb_cliente SET nome_cliente = ?,datanasc_cliente = ?,tel_clinte = ?,cpf_cliente = ?,cnh_cliente = ? "
                         + "WHERE id_cliente = ?";
             
                 PreparedStatement statement = connect.connection.prepareStatement(sql);

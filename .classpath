@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="RentcarProject/src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="src" path="libs"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="RentcarProject/libs/org.mockito.mockito-all-1.9.0.jar"/>
+	<classpathentry kind="lib" path="libs/org.mockito.mockito-all-1.9.0.jar"/>
+	<classpathentry kind="output" path="RentcarProject/build/classes"/>
+</classpath>

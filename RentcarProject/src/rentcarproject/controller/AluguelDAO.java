@@ -31,8 +31,8 @@ public class AluguelDAO {
                     String sql = "INSERT INTO tb_aluguel (id_cliente,id_veiculo,data_aluguel,datadevolucao_aluguel, numdiaria_aluguel,valortotal_aluguel,metodo_aluguel) " 
                         +"SELECT id_cliente, id_veiculo, CURRENT_DATE,CURRENT_DATE + ?,?,? * valordiaria_veiculo, ? " 
                         +"FROM tb_cliente AS cliente, tb_veiculos AS veiculo " 
-                        +"WHERE cliente.cpf_cliente = ? AND veiculo.placa_veiculo = ?; "
-                        +"UPDATE tb_veiculos SET disponibilidade_veiculo = 'INDISPONIVEL' WHERE placa_veiculo = ?";
+                        +"WHERE cliente.cpf_cliente = ? AND veiculo.placa_veiculo = ?; ";
+                        //+"UPDATE tb_veiculos SET disponibilidade_veiculo = 'INDISPONIVEL' WHERE placa_veiculo = ?";
             
                     PreparedStatement statement = connect.connection.prepareStatement(sql);
                     statement.setInt(1, aluguel.getNumDiaria());
@@ -41,7 +41,7 @@ public class AluguelDAO {
                     statement.setString(4, aluguel.getMetodoPag());
                     statement.setString(5, aluguel.cliente.getCpf());
                     statement.setString(6, aluguel.veiculo.getPlaca());
-                    statement.setString(7, aluguel.veiculo.getPlaca());
+                    //statement.setString(7, aluguel.veiculo.getPlaca());
           
                     statement.executeUpdate();
                 
@@ -51,7 +51,7 @@ public class AluguelDAO {
                     return "Locacao realizada com sucesso!";
                 
                 }catch(SQLException erro){
-                    JOptionPane.showMessageDialog(null, "Erro ao realizar locação, verifique os dados!", "Erro", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, erro.toString(), "Erro", JOptionPane.ERROR_MESSAGE);
                     return "Erro ao realizar locacao";
                 }
             }else{
