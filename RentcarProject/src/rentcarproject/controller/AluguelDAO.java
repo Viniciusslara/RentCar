@@ -32,7 +32,6 @@ public class AluguelDAO {
                         +"SELECT id_cliente, id_veiculo, CURRENT_DATE,CURRENT_DATE + ?,?,? * valordiaria_veiculo, ? " 
                         +"FROM tb_cliente AS cliente, tb_veiculos AS veiculo " 
                         +"WHERE cliente.cpf_cliente = ? AND veiculo.placa_veiculo = ?; ";
-                        //+"UPDATE tb_veiculos SET disponibilidade_veiculo = 'INDISPONIVEL' WHERE placa_veiculo = ?";
             
                     PreparedStatement statement = connect.connection.prepareStatement(sql);
                     statement.setInt(1, aluguel.getNumDiaria());
@@ -41,12 +40,21 @@ public class AluguelDAO {
                     statement.setString(4, aluguel.getMetodoPag());
                     statement.setString(5, aluguel.cliente.getCpf());
                     statement.setString(6, aluguel.veiculo.getPlaca());
-                    //statement.setString(7, aluguel.veiculo.getPlaca());
           
-                    statement.executeUpdate();
-                
-                    connect.close();
+                    statement.execute();
                     statement.close();
+                    
+                    String sql1 = "UPDATE tb_veiculos SET disponibilidade_veiculo = 'INDISPONIVEL' WHERE placa_veiculo = ?";
+                    
+                    PreparedStatement statement1 = connect.connection.prepareStatement(sql1);
+                    statement1.setString(1, aluguel.veiculo.getPlaca());
+                    
+                    statement1.execute();
+                    statement1.close();
+                    
+                    connect.close();
+                    
+                    
                     JOptionPane.showMessageDialog(null, "Locação realizada com sucesso!");
                     return "Locacao realizada com sucesso!";
                 

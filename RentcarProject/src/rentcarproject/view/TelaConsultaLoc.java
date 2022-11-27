@@ -175,9 +175,7 @@ public class TelaConsultaLoc extends javax.swing.JInternalFrame {
                     String sql = "UPDATE tb_veiculos SET disponibilidade_veiculo = 'DISPONIVEL' WHERE placa_veiculo = '"+placa+"'";
 
                     PreparedStatement statement = connect.connection.prepareStatement(sql);
-                    ResultSet resultSet = statement.executeQuery();
-
-                    resultSet.close();
+                    statement.execute();
                     statement.close();
                     connect.close();
 
@@ -215,9 +213,7 @@ public class TelaConsultaLoc extends javax.swing.JInternalFrame {
                     String sql = "UPDATE tb_veiculos SET disponibilidade_veiculo = 'DISPONIVEL' WHERE placa_veiculo = '"+placa+"'";
 
                     PreparedStatement statement = connect.connection.prepareStatement(sql);
-                    ResultSet resultSet = statement.executeQuery();
-
-                    resultSet.close();
+                    statement.execute();
                     statement.close();
                     connect.close();
 
