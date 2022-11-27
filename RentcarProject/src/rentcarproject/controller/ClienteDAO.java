@@ -18,62 +18,61 @@ import rentcarproject.models.Cliente;
  * @author vinicius
  */
 public class ClienteDAO {
-    
 
-    public String create(Cliente client){
-        
-        Connect connect = new Connect();     
-        
-        if(connect.getConnection()){
-            try{
-                
+    public String create(Cliente client) {
+
+        Connect connect = new Connect();
+
+        if (connect.getConnection()) {
+            try {
+
                 String sql = "INSERT INTO tb_cliente (id_cliente,nome_cliente,datanasc_cliente,tel_clinte,cpf_cliente,cnh_cliente) "
                         + "VALUES(DEFAULT,?,?,?,?,?)";
-            
+
                 PreparedStatement statement = connect.connection.prepareStatement(sql);
                 statement.setString(1, client.getNome());
                 statement.setString(2, client.getDataNasc());
                 statement.setString(3, client.getTelefone());
                 statement.setString(4, client.getCpf());
                 statement.setString(5, client.getCnh());
-       
+
                 statement.executeUpdate();
-                
+
                 statement.close();
                 connect.close();
-                JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
+                JOptionPane.showMessageDialog(null, "Cliente cadastrado!");
                 return "Cliente cadastrado com sucesso";
-                
-            }catch(SQLException erro){
-                JOptionPane.showMessageDialog(null, "Erro ao cadastrar, verifique os dados", "Erro", JOptionPane.ERROR_MESSAGE);
+
+            } catch (SQLException erro) {
+                JOptionPane.showMessageDialog(null, "Erro ao cadastrar, verifique os dados", "Erro",
+                        JOptionPane.ERROR_MESSAGE);
                 return "Erro ao cadastrar, verifique os dados";
             }
-        }else{
+        } else {
             System.out.println("Erro ao conectar");
             return "Erro ao cadastrar, verifique os dados";
         }
-    
+
     }
-    
-    public List<Cliente> read (){
-        
-        Connect connect = new Connect();     
-        
+
+    public List<Cliente> read() {
+
+        Connect connect = new Connect();
+
         List<Cliente> client = new ArrayList<>();
-        
-        if(connect.getConnection()){
-            try{
-                
+
+        if (connect.getConnection()) {
+            try {
+
                 String sql = "SELECT * FROM tb_cliente";
-            
+
                 PreparedStatement statement = connect.connection.prepareStatement(sql);
                 ResultSet resultSet = statement.executeQuery();
-                
-                
-                while(resultSet.next()){
-                    
+
+                while (resultSet.next()) {
+
                     Cliente cliente = new Cliente();
-                    
+
                     cliente.setId(resultSet.getInt("id_cliente"));
                     cliente.setNome(resultSet.getString("nome_cliente"));
                     cliente.setDataNasc(resultSet.getString("datanasc_cliente"));
@@ -82,33 +81,32 @@ public class ClienteDAO {
                     cliente.setCnh(resultSet.getString("cnh_cliente"));
                     client.add(cliente);
                 }
-                
+
                 resultSet.close();
                 statement.close();
                 connect.close();
-                
-                
-            }catch(SQLException erro){
+
+            } catch (SQLException erro) {
                 JOptionPane.showMessageDialog(null, "Erro na leitura", "Erro", JOptionPane.ERROR_MESSAGE);
             }
-        }else{
+        } else {
             System.out.println("Erro ao conectar");
         }
-    
+
         return client;
-    
+
     }
 
-    public String update (Cliente client){
-        
-        Connect connect = new Connect();     
-        
-        if(connect.getConnection()){
-            try{
-                
+    public String update(Cliente client) {
+
+        Connect connect = new Connect();
+
+        if (connect.getConnection()) {
+            try {
+
                 String sql = "UPDATE tb_cliente SET nome_cliente = ?,datanasc_cliente = ?,tel_clinte = ?,cpf_cliente = ?,cnh_cliente = ? "
                         + "WHERE id_cliente = ?";
-            
+
                 PreparedStatement statement = connect.connection.prepareStatement(sql);
                 statement.setString(1, client.getNome());
                 statement.setString(2, client.getDataNasc());
@@ -116,56 +114,55 @@ public class ClienteDAO {
                 statement.setString(4, client.getCpf());
                 statement.setString(5, client.getCnh());
                 statement.setInt(6, client.getId());
-       
+
                 statement.executeUpdate();
-                
+
                 statement.close();
                 connect.close();
                 JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
                 return "Alterado com sucesso!";
-                
-            }catch(SQLException erro){
+
+            } catch (SQLException erro) {
                 JOptionPane.showMessageDialog(null, "Alteração não concluida!", "Erro", JOptionPane.ERROR_MESSAGE);
                 return "Alteração não concluida";
             }
-        }else{
+        } else {
             System.out.println("Erro ao conectar");
             return "Erro ao conectar";
         }
-    
+
     }
-    
-    public String delete (Cliente client){
-        
-        Connect connect = new Connect();     
-        
-        if(connect.getConnection()){
-            try{
-                
+
+    public String delete(Cliente client) {
+
+        Connect connect = new Connect();
+
+        if (connect.getConnection()) {
+            try {
+
                 String sql = "DELETE FROM tb_cliente WHERE id_cliente = ?";
-            
+
                 PreparedStatement statement = connect.connection.prepareStatement(sql);
-                
+
                 statement.setInt(1, client.getId());
-       
+
                 statement.executeUpdate();
-                
-       
+
                 statement.close();
                 connect.close();
-                
+
                 JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
                 return "Excluido com sucesso";
-                
-            }catch(SQLException erro){
+
+            } catch (SQLException erro) {
                 JOptionPane.showMessageDialog(null, "Exclusão não concluida!", "Erro", JOptionPane.ERROR_MESSAGE);
                 return "Exclusao não concluida";
             }
-        }else{
+        } else {
             System.out.println("Erro ao conectar");
             return "Erro ao conectar";
         }
-    
+
     }
-  
+
 }
