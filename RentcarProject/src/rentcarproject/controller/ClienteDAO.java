@@ -40,7 +40,7 @@ public class ClienteDAO {
 
                 statement.close();
                 connect.close();
-                JOptionPane.showMessageDialog(null, "Cliente cadastrado!");
+                JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
                 return "Cliente cadastrado com sucesso";
 
             } catch (SQLException erro) {
