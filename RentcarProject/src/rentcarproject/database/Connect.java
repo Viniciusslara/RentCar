@@ -18,9 +18,9 @@ public class Connect {
 	
     private final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private final String DBNAME = "RentCar";
-    private final String URL = "jdbc:mysql://database-manage-configuration.cax3ljwbmj7z.us-east-1.rds.amazonaws.com:3306/" + DBNAME;
+    private final String URL = "jdbc:mysql://maintenance.cax3ljwbmj7z.us-east-1.rds.amazonaws.com:3306/" + DBNAME;
     private final String LOGIN = "admin";
-    private final String SENHA = "Gerencia1234";
+    private final String SENHA = "Manutencao1234";
     
     public boolean getConnection() {
         try {
