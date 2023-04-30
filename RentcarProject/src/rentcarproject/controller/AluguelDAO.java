@@ -29,9 +29,9 @@ public class AluguelDAO {
                 try{
                 
                     String sql = "INSERT INTO tb_aluguel (id_cliente,id_veiculo,data_aluguel,datadevolucao_aluguel, numdiaria_aluguel,valortotal_aluguel,metodo_aluguel) " 
-                        +"SELECT id_cliente, id_veiculo, CURRENT_DATE,CURRENT_DATE + ?,?,? * valordiaria_veiculo, ? " 
+                        +"SELECT id_cliente, id_veiculo, CURDATE(), ADDDATE(CURDATE(), INTERVAL + ? DAY),?, TRUNCATE(? * valordiaria_veiculo,2), ? " 
                         +"FROM tb_cliente AS cliente, tb_veiculos AS veiculo " 
-                        +"WHERE cliente.cpf_cliente = ? AND veiculo.placa_veiculo = ?; ";
+                        +"WHERE cliente.cpf_cliente = ? AND veiculo.placa_veiculo = ?;";
             
                     PreparedStatement statement = connect.connection.prepareStatement(sql);
                     statement.setInt(1, aluguel.getNumDiaria());

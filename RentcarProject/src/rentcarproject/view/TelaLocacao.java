@@ -6,7 +6,10 @@ package rentcarproject.view;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.SQLException;import javax.swing.JOptionPane;
+import rentcarproject.controller.AluguelDAO;
+import rentcarproject.database.Connect;
+import rentcarproject.models.Aluguel;
 import javax.swing.JOptionPane;
 import rentcarproject.controller.AluguelDAO;
 import rentcarproject.database.Connect;
