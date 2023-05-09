@@ -38,7 +38,6 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         jLabelNome = new javax.swing.JLabel();
         jTextFieldNome = new javax.swing.JTextField();
         jLabelNasc = new javax.swing.JLabel();
-        jTextFieldNasc = new javax.swing.JTextField();
         jLabelTel = new javax.swing.JLabel();
         jLabelCPF = new javax.swing.JLabel();
         jLabelCNH = new javax.swing.JLabel();
@@ -51,6 +50,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         jTableClientes = new javax.swing.JTable();
         jButtonExcluir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jTextFieldNasc = new javax.swing.JFormattedTextField();
 
         setClosable(true);
 
@@ -67,8 +67,6 @@ public class TelaCliente extends javax.swing.JInternalFrame {
 
         jLabelNasc.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         jLabelNasc.setText("Data de Nascimento:");
-
-        jTextFieldNasc.setText("DD/MM/YYYY");
 
         jLabelTel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         jLabelTel.setText("Telefone:");
@@ -135,6 +133,17 @@ public class TelaCliente extends javax.swing.JInternalFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logo1.png"))); // NOI18N
 
+        try {
+            jTextFieldNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jTextFieldNasc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNascActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -181,10 +190,10 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                             .addComponent(jLabelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabelTel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldTel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -203,7 +212,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonATT, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addGap(59, 59, 59))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -293,6 +302,10 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
 
+    private void jTextFieldNascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNascActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNascActionPerformed
+
     public void readJTable(){
         DefaultTableModel modelo = (DefaultTableModel) jTableClientes.getModel();
         modelo.setNumRows(0);
@@ -328,7 +341,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTableClientes;
     private javax.swing.JTextField jTextFieldCNH;
     private javax.swing.JTextField jTextFieldCPF;
-    private javax.swing.JTextField jTextFieldNasc;
+    private javax.swing.JFormattedTextField jTextFieldNasc;
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldTel;
     // End of variables declaration//GEN-END:variables

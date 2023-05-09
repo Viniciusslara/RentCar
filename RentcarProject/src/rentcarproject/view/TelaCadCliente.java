@@ -38,7 +38,6 @@ public class TelaCadCliente extends javax.swing.JInternalFrame {
         jLabelNome = new javax.swing.JLabel();
         jTextFieldNome = new javax.swing.JTextField(40);
         jLabelNasc = new javax.swing.JLabel();
-        jTextFieldNasc = new javax.swing.JTextField();
         jLabelTel = new javax.swing.JLabel();
         jLabelCPF = new javax.swing.JLabel();
         jLabelCNH = new javax.swing.JLabel();
@@ -48,6 +47,7 @@ public class TelaCadCliente extends javax.swing.JInternalFrame {
         jButtonCad = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jTextFieldNasc = new javax.swing.JFormattedTextField();
 
         setClosable(true);
 
@@ -62,8 +62,6 @@ public class TelaCadCliente extends javax.swing.JInternalFrame {
 
         jLabelNasc.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         jLabelNasc.setText("Data de Nascimento:");
-
-        jTextFieldNasc.setText("DD/MM/YYYY");
 
         jLabelTel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         jLabelTel.setText("Telefone:");
@@ -95,6 +93,12 @@ public class TelaCadCliente extends javax.swing.JInternalFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logo1.png"))); // NOI18N
 
+        try {
+            jTextFieldNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -119,7 +123,7 @@ public class TelaCadCliente extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldTel, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
                             .addComponent(jTextFieldNome, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
-                            .addComponent(jTextFieldNasc, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE))))
+                            .addComponent(jTextFieldNasc))))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(86, 86, 86))
@@ -142,11 +146,11 @@ public class TelaCadCliente extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldNome, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                            .addComponent(jLabelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, Short.MAX_VALUE))
+                            .addComponent(jLabelNome, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                         .addGap(47, 47, 47)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabelNasc, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                            .addComponent(jTextFieldNasc))
                         .addGap(47, 47, 47)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabelTel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -216,7 +220,7 @@ public class TelaCadCliente extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextFieldCNH;
     private javax.swing.JTextField jTextFieldCPF;
-    private javax.swing.JTextField jTextFieldNasc;
+    private javax.swing.JFormattedTextField jTextFieldNasc;
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldTel;
     // End of variables declaration//GEN-END:variables
