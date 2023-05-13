@@ -195,7 +195,7 @@ public class TelaCadCliente extends javax.swing.JInternalFrame {
     private void jButtonCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadActionPerformed
         // TODO add your handling code here:
         try {
-        if(!StringValidators.isNumeric(jTextFieldTel.getText())||jTextFieldTel.getText().length()>12) {
+        if(!StringValidators.isNumeric(jTextFieldTel.getText())||jTextFieldTel.getText().length()!=11) {
             throw new RuntimeException("Valor inválido para telefone");
         }
         if(!StringValidators.isCPFValido(jTextFieldCPF.getText())){

@@ -273,7 +273,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
 
         if(jTableClientes.getSelectedRow() != -1){
             try {
-                    if(!StringValidators.isNumeric(jTextFieldTel.getText())||jTextFieldTel.getText().length()>12) {
+                    if(!StringValidators.isNumeric(jTextFieldTel.getText())||jTextFieldTel.getText().length()!=11) {
             throw new RuntimeException("Valor inválido para telefone");
         }
         if(!StringValidators.isNumeric(jTextFieldCPF.getText()) || !StringValidators.isCPFValido(jTextFieldCPF.getText())){
@@ -284,7 +284,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             throw new RuntimeException("Valor inválido para nome");
         }
         
-          if(StringValidators.isVazio(jTextFieldNasc.getText())) {
+          if(StringValidators.isVazio(jTextFieldNasc.getText()) || !StringValidators.isDateValid(jTextFieldNasc.getText()) || !StringValidators.is18YearsOld(jTextFieldNasc.getText())) {
             throw new RuntimeException("Valor inválido para nascimento");
         }
           if(!StringValidators.isNumeric(jTextFieldCNH.getText()) || jTextFieldCNH.getText().length()<8 || jTextFieldCNH.getText().length()>12) {
