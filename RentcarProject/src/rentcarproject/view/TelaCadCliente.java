@@ -11,7 +11,8 @@ import java.util.Date;
 import rentcarproject.controller.ClienteDAO;
 import rentcarproject.database.Connect;
 import rentcarproject.models.Cliente;
-
+import helpers.StringValidators;
+import javax.swing.JOptionPane;
 /**
  *
  * @author vinicius
@@ -193,10 +194,29 @@ public class TelaCadCliente extends javax.swing.JInternalFrame {
 
     private void jButtonCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadActionPerformed
         // TODO add your handling code here:
+        try {
+        if(!StringValidators.isNumeric(jTextFieldTel.getText())||jTextFieldTel.getText().length()>12) {
+            throw new RuntimeException("Valor inválido para telefone");
+        }
+        if(!StringValidators.isCPFValido(jTextFieldCPF.getText())){
+      
+            throw new RuntimeException("Valor inválido para cpf");
+        }
         
+        if(StringValidators.isVazio(jTextFieldNome.getText())) {
+            throw new RuntimeException("Valor inválido para nome");
+        }
+        
+          if(StringValidators.isVazio(jTextFieldNasc.getText())) {
+            throw new RuntimeException("Valor inválido para nascimento");
+        }
+          if(!StringValidators.isNumeric(jTextFieldCNH.getText()) || jTextFieldCNH.getText().length()<8 || jTextFieldCNH.getText().length()>12) {
+         
+            throw new RuntimeException("Valor inválido para CNH");
+        }
         Cliente client = new Cliente();
         ClienteDAO clientDao = new ClienteDAO();
-        
+      
         client.setNome(jTextFieldNome.getText());
         client.setDataNasc(jTextFieldNasc.getText());
         client.setTelefone(jTextFieldTel.getText());
@@ -204,6 +224,10 @@ public class TelaCadCliente extends javax.swing.JInternalFrame {
         client.setCnh(jTextFieldCNH.getText());
         
         clientDao.create(client);
+        } catch (RuntimeException e) {
+            JOptionPane.showMessageDialog(rootPane, e.getMessage(), "Erro ao Cadastrar", JOptionPane.ERROR_MESSAGE);
+        }
+
         
     }//GEN-LAST:event_jButtonCadActionPerformed
 

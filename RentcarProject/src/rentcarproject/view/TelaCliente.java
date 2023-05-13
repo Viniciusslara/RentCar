@@ -4,6 +4,8 @@
  */
 package rentcarproject.view;
 
+import helpers.StringValidators;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import rentcarproject.controller.ClienteDAO;
@@ -270,7 +272,24 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
 
         if(jTableClientes.getSelectedRow() != -1){
-
+            try {
+                    if(!StringValidators.isNumeric(jTextFieldTel.getText())||jTextFieldTel.getText().length()>12) {
+            throw new RuntimeException("Valor inválido para telefone");
+        }
+        if(!StringValidators.isNumeric(jTextFieldCPF.getText()) || !StringValidators.isCPFValido(jTextFieldCPF.getText())){
+            throw new RuntimeException("Valor inválido para cpf");
+        }
+        
+        if(StringValidators.isVazio(jTextFieldNome.getText())) {
+            throw new RuntimeException("Valor inválido para nome");
+        }
+        
+          if(StringValidators.isVazio(jTextFieldNasc.getText())) {
+            throw new RuntimeException("Valor inválido para nascimento");
+        }
+          if(!StringValidators.isNumeric(jTextFieldCNH.getText()) || jTextFieldCNH.getText().length()<8 || jTextFieldCNH.getText().length()>12) {
+            throw new RuntimeException("Valor inválido para CNH");
+        }
             Cliente client = new Cliente();
             ClienteDAO clientDao = new ClienteDAO();
 
@@ -282,6 +301,10 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             client.setCnh(jTextFieldCNH.getText());
 
             clientDao.update(client);
+            } catch (RuntimeException e) {
+                JOptionPane.showMessageDialog(rootPane, e.getMessage(), "Erro ao Cadastrar", JOptionPane.ERROR_MESSAGE);
+            }
+
 
         }
 
