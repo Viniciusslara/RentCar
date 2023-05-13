@@ -8,6 +8,11 @@ package helpers;
  *
  * @author Gabriel
  */
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Calendar;
 public class StringValidators {
 public static boolean isNumeric(String str) {
     if (str == null || str.length() == 0) {
@@ -62,5 +67,35 @@ private static int calcularDigitoVerificador(String parteCPF) {
 public static boolean isVazio(String str) {
     return str.isEmpty();
 }
+ public static boolean isDateValid(String dateStr) {
+    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    Date currentDate = new Date();
+    try {
+        Date date = dateFormat.parse(dateStr);
+        if (date.after(currentDate)) {
+            return false;
+        }
+    } catch (ParseException e) {
+        return false;
+    }
+    return true;
+}
  
+ public static boolean is18YearsOld(String dateStr) {
+    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    try {
+        Date birthDate = dateFormat.parse(dateStr);
+        Calendar now = Calendar.getInstance();
+        Calendar dob = Calendar.getInstance();
+        dob.setTime(birthDate);
+        dob.add(Calendar.DAY_OF_MONTH, 1);
+        int age = now.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+        if (now.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)) {
+            age--;
+        }
+        return age >= 18;
+    } catch (ParseException e) {
+        return false;
+    }
+}
 }
