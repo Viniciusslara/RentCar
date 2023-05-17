@@ -130,6 +130,7 @@ public class TelaLogin extends javax.swing.JFrame {
         if(jTextField2.getText().equals(user) && jPasswordField1.getText().equals(password)){
             TelaMenu menu = new TelaMenu();
             menu.main();
+            this.setVisible(false);
         }else{
             JOptionPane.showMessageDialog(rootPane, "Usuario/Senha Incorreta!", "Erro ao logar", JOptionPane.ERROR_MESSAGE);
         }

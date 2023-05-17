@@ -18,6 +18,14 @@ public class TelaMenu extends javax.swing.JFrame {
      */
     public TelaMenu() {
         initComponents();
+        
+        // re-open Login screen after closing the screen TelaMenu
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                TelaLogin telaLogin = new TelaLogin();
+                telaLogin.setVisible(true);
+            }
+        });
     }
 
     /**
