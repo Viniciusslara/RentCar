@@ -92,11 +92,19 @@ public class StringValidatorsTest {
     @Test
     public void isDateInvalidtest(){
         
-        var res = validator.isDateValid("30032024");
+        var res = validator.isDateValid("30/03/2024");
         
         assertFalse(res);
        
     }
     
+    @Test
+    public void isDateValid(){
+        
+        var res = validator.isDateValid("14/04/1999");
+        
+        System.out.println("teste: " + res);
+        assertTrue(res);
+    }
    
 }
