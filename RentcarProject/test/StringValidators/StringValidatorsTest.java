@@ -79,4 +79,13 @@ public class StringValidatorsTest {
         
         assertFalse(res); 
     }
+    
+    @Test
+    public void isCPFNull(){
+        
+        var res = validator.isCPFValido(null);
+        
+        assertFalse(res); 
+        
+    }
 }
