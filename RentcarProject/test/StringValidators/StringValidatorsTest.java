@@ -22,7 +22,7 @@ public class StringValidatorsTest {
   
     
     @Test
-    public void cpfNumerictest(){
+    public void isCPFNumerictest(){
         
         var res = validator.isNumeric("012345678901");
         
@@ -31,7 +31,7 @@ public class StringValidatorsTest {
     }
     
     @Test
-    public void cpfWithCharactersNotNumerictest(){
+    public void isCPFWithCharactersNotNumerictest(){
         
         var res = validator.isNumeric("01234s67890#");
         
@@ -44,6 +44,15 @@ public class StringValidatorsTest {
         var res = validator.isCPFValido("88945004033");
         
         assertTrue(res);
+        
+    }
+    
+    @Test
+    public void isCPFInvalidotest(){    
+        
+        var res = validator.isCPFValido("00000000000");
+        
+        assertFalse(res);
         
     }
 }
