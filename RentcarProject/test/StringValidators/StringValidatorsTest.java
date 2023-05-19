@@ -55,4 +55,12 @@ public class StringValidatorsTest {
         assertFalse(res);
         
     }
+    
+    @Test
+    public void isCPFWithElevenDigits(){
+        
+        var res = validator.isCPFValido("88945004033");
+        
+        assertTrue(res); 
+    }
 }
