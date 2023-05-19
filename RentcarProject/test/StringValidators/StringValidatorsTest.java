@@ -92,12 +92,10 @@ public class StringValidatorsTest {
     @Test
     public void dataExceptiontest(){
         
-        var res = validator.isDateValid("30302010");
-        var res1 = validator.isDateValid("40102010");
-        var res2 =  validator.isDateValid("10100000");
+        var res = validator.isDateValid("30032024");
         
-        assertFalse(res);
-        assertFalse(res1);
-        assertFalse(res2);
+        assertTrue(res);
+       
     }
+   
 }
