@@ -135,7 +135,7 @@ public class StringValidatorsTest {
         
         var res = validator.isVazio("");
         
-        assertFalse(res);
+        assertTrue(res);
     }
    
 }
