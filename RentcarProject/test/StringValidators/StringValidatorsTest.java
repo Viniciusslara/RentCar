@@ -25,7 +25,7 @@ public class StringValidatorsTest {
     }
     
     @Test
-    public void cpfNumeric(){
+    public void cpfNumerictest(){
         
         iniciar();
         
@@ -33,5 +33,15 @@ public class StringValidatorsTest {
         
         assertTrue(res);
         
+    }
+    
+    @Test
+    public void cpfWithCharactersNotNumerictest(){
+        
+        iniciar();
+
+        var res = validator.isNumeric("01234s67890#");
+        
+        assertFalse(res);
     }
 }
