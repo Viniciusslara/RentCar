@@ -4,6 +4,7 @@
  */
 package StringValidators;
 
+import helpers.StringValidators;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,28 +18,20 @@ import static org.junit.Assert.*;
  */
 public class StringValidatorsTest {
     
-    public StringValidatorsTest() {
+    static StringValidators validator;
+    
+    public void iniciar(){
+        validator = new StringValidators();
     }
     
-    @BeforeClass
-    public static void setUpClass() {
+    @Test
+    public void cpfNumeric(){
+        
+        iniciar();
+        
+        var res = validator.isNumeric("012345678901");
+        
+        assertTrue(res);
+        
     }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }
