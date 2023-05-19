@@ -18,16 +18,11 @@ import static org.junit.Assert.*;
  */
 public class StringValidatorsTest {
     
-    static StringValidators validator;
-    
-    public void iniciar(){
-        validator = new StringValidators();
-    }
+    static StringValidators validator = new StringValidators();
+  
     
     @Test
     public void cpfNumerictest(){
-        
-        iniciar();
         
         var res = validator.isNumeric("012345678901");
         
@@ -38,10 +33,17 @@ public class StringValidatorsTest {
     @Test
     public void cpfWithCharactersNotNumerictest(){
         
-        iniciar();
-
         var res = validator.isNumeric("01234s67890#");
         
         assertFalse(res);
+    }
+    
+    @Test
+    public void isCPFValidotest(){    
+        
+        var res = validator.isCPFValido("88945004033");
+        
+        assertTrue(res);
+        
     }
 }
