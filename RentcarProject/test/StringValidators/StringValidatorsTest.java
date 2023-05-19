@@ -57,7 +57,7 @@ public class StringValidatorsTest {
     }
     
     @Test
-    public void isCPFWithElevenDigits(){
+    public void isCPFWithElevenDigitstest(){
         
         var res = validator.isCPFValido("88945004033");
         
@@ -65,7 +65,7 @@ public class StringValidatorsTest {
     }
     
     @Test
-    public void isCPFWithMoreElevenDigits(){
+    public void isCPFWithMoreElevenDigitstest(){
         
         var res = validator.isCPFValido("8894500403390");
         
@@ -73,7 +73,7 @@ public class StringValidatorsTest {
     }
     
     @Test
-    public void isCPFWithLessElevenDigits(){
+    public void isCPFWithLessElevenDigitstest(){
         
         var res = validator.isCPFValido("889450040");
         
@@ -81,11 +81,23 @@ public class StringValidatorsTest {
     }
     
     @Test
-    public void isCPFNull(){
+    public void isCPFNulltest(){
         
         var res = validator.isCPFValido(null);
         
         assertFalse(res); 
         
+    }
+    
+    @Test
+    public void dataExceptiontest(){
+        
+        var res = validator.isDateValid("30302010");
+        var res1 = validator.isDateValid("40102010");
+        var res2 =  validator.isDateValid("10100000");
+        
+        assertFalse(res);
+        assertFalse(res1);
+        assertFalse(res2);
     }
 }
