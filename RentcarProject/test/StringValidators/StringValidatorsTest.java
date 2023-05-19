@@ -71,4 +71,12 @@ public class StringValidatorsTest {
         
         assertFalse(res); 
     }
+    
+    @Test
+    public void isCPFWithLessElevenDigits(){
+        
+        var res = validator.isCPFValido("889450040");
+        
+        assertFalse(res); 
+    }
 }
