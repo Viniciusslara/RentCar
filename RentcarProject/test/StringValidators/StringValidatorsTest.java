@@ -113,5 +113,13 @@ public class StringValidatorsTest {
         
         assertTrue(res);
     }
+    
+    @Test
+    public void isMore18YearsOldtest(){
+        
+        var res = validator.is18YearsOld("14/04/1999");
+        
+        assertTrue(res);
+    }
    
 }
