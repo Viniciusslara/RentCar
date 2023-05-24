@@ -6,7 +6,9 @@ package rentcarproject.view;
 
 
 import javax.swing.JOptionPane;
-
+import javax.swing.JInternalFrame;
+import javax.swing.SwingUtilities;
+ 
 /**
  *
  * @author vinicius
@@ -18,7 +20,7 @@ public class TelaMenu extends javax.swing.JFrame {
      */
     public TelaMenu() {
         initComponents();
-        
+ 
         // re-open Login screen after closing the screen TelaMenu
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent e) {
@@ -181,7 +183,10 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-        
+            JInternalFrame[] frames = jDesktopPane1.getAllFrames();
+                for (JInternalFrame frame : frames) {
+                    frame.dispose(); // Fecha o JInternalFrame
+                }
         TelaConsultaLoc telaLocacao = new TelaConsultaLoc();
         jDesktopPane1.add(telaLocacao);
         telaLocacao.setVisible(true);
