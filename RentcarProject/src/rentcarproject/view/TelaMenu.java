@@ -175,7 +175,10 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        
+            JInternalFrame[] frames = jDesktopPane1.getAllFrames();
+                for (JInternalFrame frame : frames) {
+                    frame.dispose(); // Fecha o JInternalFrame
+                }
         TelaCadVeiculo telaVeiculo = new TelaCadVeiculo();
         jDesktopPane1.add(telaVeiculo);
         telaVeiculo.setVisible(true);
@@ -194,7 +197,10 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        
+            JInternalFrame[] frames = jDesktopPane1.getAllFrames();
+                for (JInternalFrame frame : frames) {
+                    frame.dispose(); // Fecha o JInternalFrame
+                }
         TelaCadCliente telaCliente = new TelaCadCliente();
         jDesktopPane1.add(telaCliente);
         telaCliente.setVisible(true);
@@ -204,7 +210,10 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        
+            JInternalFrame[] frames = jDesktopPane1.getAllFrames();
+                for (JInternalFrame frame : frames) {
+                    frame.dispose(); // Fecha o JInternalFrame
+                }
         TelaLocacao telaLocacao = new TelaLocacao();
         jDesktopPane1.add(telaLocacao);
         telaLocacao.setVisible(true);
@@ -213,6 +222,10 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
+            JInternalFrame[] frames = jDesktopPane1.getAllFrames();
+                for (JInternalFrame frame : frames) {
+                    frame.dispose(); // Fecha o JInternalFrame
+                }
         TelaCliente telaCliente = new TelaCliente();
         jDesktopPane1.add(telaCliente);
         telaCliente.setVisible(true);
@@ -220,6 +233,10 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
+            JInternalFrame[] frames = jDesktopPane1.getAllFrames();
+                for (JInternalFrame frame : frames) {
+                    frame.dispose(); // Fecha o JInternalFrame
+                }
         TelaVeiculo telaVeiculo = new TelaVeiculo();
         jDesktopPane1.add(telaVeiculo);
         telaVeiculo.setVisible(true);
