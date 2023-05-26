@@ -8,11 +8,16 @@ package helpers;
  *
  * @author Gabriel
  */
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
+import javax.swing.JOptionPane;
+import rentcarproject.database.Connect;
 public class StringValidators {
 public static boolean isNumeric(String str) {
     if (str == null || str.length() == 0) {
@@ -79,6 +84,38 @@ public static boolean isVazio(String str) {
         return false;
     }
     return true;
+}
+ 
+public static boolean isUserExist(String str){
+    
+    Connect connect = new Connect();
+    
+    if(connect.getConnection()){
+        try{
+            
+            String sql = "SELECT id_usuario FROM tb_usuarios WHERE username_usuario = '"+str+"'";
+            String resultado = "";
+            PreparedStatement statement = connect.connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+                
+            while(resultSet.next()){
+                resultado = String.valueOf(resultSet.getInt("id_usuario"));
+            }
+            resultSet.close();
+            statement.close();
+            connect.close();
+                
+            return !resultado.isEmpty();
+
+            }catch(SQLException erro){
+                System.out.println(erro.toString());
+                return false;
+            }
+    }else{
+        JOptionPane.showMessageDialog(null, "Erro na leitura dos dados", "Erro", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+    
 }
  
  public static boolean is18YearsOld(String dateStr) {

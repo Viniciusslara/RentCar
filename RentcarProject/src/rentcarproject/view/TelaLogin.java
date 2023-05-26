@@ -42,6 +42,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel1.setRequestFocusEnabled(false);
 
         jLabel2.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         jLabel2.setText("Senha");
@@ -156,12 +157,13 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         TelaCadUsuario telaUsuario = new TelaCadUsuario();
-        this.getContentPane().add(telaUsuario);
+        telaUsuario.main();
+        this.setVisible(false);
         
     }//GEN-LAST:event_jLabelCadastroMouseClicked
 
   
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
