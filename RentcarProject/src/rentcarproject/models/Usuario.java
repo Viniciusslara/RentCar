@@ -8,13 +8,13 @@ package rentcarproject.models;
  *
  * @author vinicius
  */
-public class Usuarios {
+public class Usuario {
     
     private int id;
     private String username;
     private String password;
     
-    public Usuarios(){
+    public Usuario(){
         this.id = 0;
         this.username = "";
         this.password = "";
