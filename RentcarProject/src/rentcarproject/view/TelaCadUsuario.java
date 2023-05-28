@@ -160,7 +160,7 @@ public class TelaCadUsuario extends javax.swing.JFrame {
             usuarioDAO.create(usuario);
             
         }catch(RuntimeException e){
-            JOptionPane.showMessageDialog(rootPane, e.getMessage(), "Erro ao Cadastrar", JOptionPane.ERROR_MESSAGE);
+           JOptionPane.showMessageDialog(rootPane, e.getMessage(), "Erro ao Cadastrar", JOptionPane.ERROR_MESSAGE);
         }
 
         

@@ -18,6 +18,10 @@ import java.util.Date;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 import rentcarproject.database.Connect;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.math.BigInteger;
+
 public class StringValidators {
 public static boolean isNumeric(String str) {
     if (str == null || str.length() == 0) {
@@ -134,5 +138,19 @@ public static boolean isUserExist(String str){
     } catch (ParseException e) {
         return false;
     }
-}
+  }
+
+ public static String isHash(String input) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            digest.update(input.getBytes());
+            byte[] hash = digest.digest();
+            return new BigInteger(1, hash).toString(16);
+        } catch (NoSuchAlgorithmException e) {
+            System.out.println("Erro: " + e.getMessage());
+            return null;
+        }
+    }
+
+
 }

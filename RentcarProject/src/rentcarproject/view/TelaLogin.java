@@ -158,7 +158,7 @@ public class TelaLogin extends javax.swing.JFrame {
         
         TelaCadUsuario telaUsuario = new TelaCadUsuario();
         telaUsuario.main();
-        this.setVisible(false);
+        this.setVisible(true);
         
     }//GEN-LAST:event_jLabelCadastroMouseClicked
 
