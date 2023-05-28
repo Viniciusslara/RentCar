@@ -151,6 +151,39 @@ public static boolean isUserExist(String str){
             return null;
         }
     }
+ 
+ public static boolean isLogin(String user, String password){
+     
+     Connect connect = new Connect();
+     
+     String passwordVerify = "";
+     
+     if(connect.getConnection()){
+         try{
+             
+             String sql = "SELECT password_usuario AS 'Password'FROM tb_usuarios "
+                     + "WHERE username_usuario = ?";
+             
+             PreparedStatement statement = connect.connection.prepareStatement(sql);
+             statement.setString(1, user);
+             
+             ResultSet resultSet = statement.executeQuery();
+             
+             while(resultSet.next()){
+                 passwordVerify = resultSet.getString("Password");
+             }
+             return password.equals(passwordVerify);
+             
+         }catch(SQLException e){
+             System.out.println(e.toString());
+                return false;
+         }
+     }else{
+         return false;
+     }
+     
+
+ }
 
 
 }

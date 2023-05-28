@@ -155,7 +155,7 @@ public class TelaCadUsuario extends javax.swing.JFrame {
             UsuarioDAO usuarioDAO = new UsuarioDAO();
             
             usuario.setUsername(jTextFieldUser.getText());
-            usuario.setPassword(jPasswordFieldP.getText());
+            usuario.setPassword(StringValidators.isHash(jPasswordFieldP.getText()));
             
             usuarioDAO.create(usuario);
             

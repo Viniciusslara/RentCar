@@ -4,6 +4,7 @@
  */
 package rentcarproject.view;
 
+import helpers.StringValidators;
 import javax.swing.JOptionPane;
 
 /**
@@ -143,7 +144,7 @@ public class TelaLogin extends javax.swing.JFrame {
         String user = "admin";
         String password = "admin";
         
-        if(jTextField2.getText().equals(user) && jPasswordField1.getText().equals(password)){
+        if(StringValidators.isLogin(jTextField2.getText(), StringValidators.isHash(jPasswordField1.getText()))){
             TelaMenu menu = new TelaMenu();
             menu.main();
             this.setVisible(false);
