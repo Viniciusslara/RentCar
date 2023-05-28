@@ -97,9 +97,10 @@ public static boolean isUserExist(String str){
     if(connect.getConnection()){
         try{
             
-            String sql = "SELECT id_usuario FROM tb_usuarios WHERE username_usuario = '"+str+"'";
+            String sql = "SELECT id_usuario FROM tb_usuarios WHERE username_usuario = ?";
             String resultado = "";
             PreparedStatement statement = connect.connection.prepareStatement(sql);
+            statement.setString(1, str);
             ResultSet resultSet = statement.executeQuery();
                 
             while(resultSet.next()){
@@ -161,7 +162,7 @@ public static boolean isUserExist(String str){
      if(connect.getConnection()){
          try{
              
-             String sql = "SELECT password_usuario AS 'Password'FROM tb_usuarios "
+             String sql = "SELECT password_usuario AS 'Password' FROM tb_usuarios "
                      + "WHERE username_usuario = ?";
              
              PreparedStatement statement = connect.connection.prepareStatement(sql);
